@@ -1,0 +1,9 @@
+packages:
+  "framer-motion": "Smooth animations for UI elements, entrance effects, and interactions"
+  "lucide-react": "Icons for the interface"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility function to efficiently merge Tailwind CSS classes"
+
+notes:
+  - This is a fully client-side application, no backend endpoints required.
+  - Subnet calculations are performed entirely in the browser.

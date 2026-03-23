@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  /* Cyber dark theme palette based on HSL */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  
+  --color-card: hsl(var(--card));
+  --color-card-border: hsl(var(--card-border));
+  
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  
+  --color-safe: hsl(var(--safe));
+  --color-safe-foreground: hsl(var(--safe-foreground));
+}
+
+:root {
+  /* Core colors */
+  --background: 0 0% 0%; /* Pure black */
+  --foreground: 0 0% 88%; /* Light gray */
+  
+  /* Primary: Neon green #00ff9f */
+  --primary: 158 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  
+  /* Secondary: Soft green #00cc88 */
+  --secondary: 158 100% 40%;
+  --secondary-foreground: 0 0% 0%;
+  
+  /* UI Elements */
+  --card: 158 100% 4%; /* Very dark with glass effect */
+  --card-border: 158 30% 15%;
+  
+  --muted: 158 10% 12%; /* Dark gray with slight green tint */
+  --muted-foreground: 158 10% 60%;
+  
+  --border: 158 30% 15%;
+  --input: 158 40% 20%;
+  --ring: 158 100% 50%;
+  
+  /* Status Colors */
+  --destructive: 0 100% 50%; /* Neon Red */
+  --destructive-foreground: 0 0% 0%;
+  
+  --warning: 39 100% 50%; /* Neon Orange/Amber */
+  --warning-foreground: 0 0% 0%;
+  
+  --safe: 158 100% 50%; /* Neon Green (same as primary) */
+  --safe-foreground: 0 0% 0%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans min-h-screen overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .cyber-bg {
+    background-image: 
+      linear-gradient(to bottom, rgba(0, 255, 159, 0.05) 1px, transparent 1px),
+      linear-gradient(to right, rgba(0, 255, 159, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: cyber-grid 20s linear infinite;
+  }
+  
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-md border border-card-border shadow-[0_0_30px_rgba(0,255,159,0.05)];
+  }
+  
+  .neon-text {
+    @apply text-primary drop-shadow-[0_0_8px_rgba(0,255,159,0.8)];
+  }
+  
+  .neon-border {
+    @apply border-primary shadow-[0_0_10px_rgba(0,255,159,0.3),inset_0_0_10px_rgba(0,255,159,0.1)];
+  }
+  
+  .neon-border-focus {
+    @apply focus:border-primary focus:shadow-[0_0_15px_rgba(0,255,159,0.5),inset_0_0_10px_rgba(0,255,159,0.2)] focus:outline-none;
+  }
+  
+  .neon-border-error {
+    @apply border-destructive shadow-[0_0_10px_rgba(255,0,0,0.3),inset_0_0_10px_rgba(255,0,0,0.1)] focus:border-destructive focus:shadow-[0_0_15px_rgba(255,0,0,0.5),inset_0_0_10px_rgba(255,0,0,0.2)];
+  }
+  
+  .neon-button {
+    @apply bg-primary text-black font-mono font-bold uppercase tracking-wider 
+           shadow-[0_0_15px_rgba(0,255,159,0.4)] transition-all duration-300
+           hover:shadow-[0_0_25px_rgba(0,255,159,0.7)] hover:bg-[#1affb2]
+           active:scale-95 active:shadow-[0_0_10px_rgba(0,255,159,0.4)];
+  }
+  
+  .neon-button-outline {
+    @apply bg-transparent border border-primary text-primary font-mono font-bold uppercase tracking-wider
+           transition-all duration-300
+           hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(0,255,159,0.3)]
+           active:scale-95;
+  }
+}
+
+@keyframes cyber-grid {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(40px); }
+}
+
+/* Scrollbar styling for that terminal feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
