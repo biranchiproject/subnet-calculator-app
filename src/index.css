@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #64748b;
+  --color-dark-bg: #020617; /* Deep Navy Black */
+  --color-dark-card: #0f172a;
+  --color-dark-text: #f1f5f9;
+  --color-neon-blue: #00d2ff;
+  --color-neon-purple: #bf00ff;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text font-sans antialiased selection:bg-neon-blue/30 selection:text-white;
+  }
+
+  input, select {
+    @apply bg-dark-bg border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-neon-blue/50 transition-all;
+  }
+
+  /* Custom Neon Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00d2ff;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+  }
+}
+
+/* Neon Glow Utilities */
+.neon-glow-blue {
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3), inset 0 0 10px rgba(0, 210, 255, 0.05);
+  border-color: rgba(0, 210, 255, 0.4);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 15px rgba(191, 0, 255, 0.3), inset 0 0 10px rgba(191, 0, 255, 0.05);
+  border-color: rgba(191, 0, 255, 0.4);
+}
+
+.neon-text-blue {
+  text-shadow: 0 0 15px rgba(0, 210, 255, 0.6), 0 0 30px rgba(0, 210, 255, 0.3);
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 15px rgba(191, 0, 255, 0.6), 0 0 30px rgba(191, 0, 255, 0.3);
+}
+
+.glass-card {
+  @apply bg-dark-card/40 backdrop-blur-2xl border border-white/5 rounded-2xl md:rounded-3xl transition-all duration-500 overflow-hidden;
+}
+
+@keyframes pulse-neon-blue {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); }
+}
+
+@keyframes pulse-neon-purple {
+  0%, 100% { box-shadow: 0 0 15px rgba(191, 0, 255, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(191, 0, 255, 0.5); }
+}
+
+.animate-neon-blue { animation: pulse-neon-blue 4s infinite ease-in-out; }
+.animate-neon-purple { animation: pulse-neon-purple 4s infinite ease-in-out; }
+
+/* Responsive utility for small screens */
+@media (max-width: 640px) {
+  .glass-card {
+    @apply p-6;
+  }
+}
