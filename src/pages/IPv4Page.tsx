@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { calculateSubnet, getCidrOptions, isValidIP, SubnetResults, IPClass } from '../lib/subnet-logic';
 import { Calculator, Trash2, Info, CheckCircle2, AlertCircle, Network, ShieldCheck } from 'lucide-react';

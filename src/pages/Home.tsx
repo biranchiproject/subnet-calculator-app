@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Network, Globe2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
