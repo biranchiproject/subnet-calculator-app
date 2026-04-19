@@ -28,10 +28,10 @@ dist-ssr
 .replit
 .replitignore
 .npmrc
-pnpm-lock.yaml
+# pnpm-lock.yaml (Removed from ignore to allow tracking)
 pnpm-workspace.yaml
-artifacts/
-lib/
-scripts/
+/artifacts/
+/lib/
+/scripts/
 standalone-demo.html
 tsconfig.base.json

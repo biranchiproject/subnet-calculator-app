@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { calculateIPv6Subnet, isValidIPv6, IPv6Results } from '../lib/subnet-logic';
+import { calculateIPv6Subnet, isValidIPv6, IPv6Results } from '@/lib/subnet-logic';
 import { Globe2, Trash2, Calculator, Info, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function IPv6Page() {
